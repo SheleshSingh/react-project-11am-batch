@@ -3,12 +3,19 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col">
       <Header />
-      <button className="bg-amber-400 px-5 py-3 rounded mt-3 ml-3 transition-transform hover:scale-105">
-        Create card
-      </button>
-      <Card />
+      
+      <div className="grid grid-cols-4 place-items-center gap-3 p-3">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 }
