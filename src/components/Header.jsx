@@ -1,6 +1,7 @@
 import { Heart, Plus } from "lucide-react";
 import Popup from "./Popup";
 import { useState } from "react";
+import CreateUserForm from "../form/CreateUserForm";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,11 @@ const Header = () => {
           </button>
         </div>
       </div>
-      {open && <Popup setOpen={setOpen} />}
+      {open && (
+        <Popup setOpen={setOpen} message={"Create User Form"}>
+          <CreateUserForm />
+        </Popup>
+      )}
     </>
   );
 };

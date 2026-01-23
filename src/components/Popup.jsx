@@ -1,12 +1,18 @@
 import React from "react";
 
-const Popup = ({ setOpen }) => {
+const Popup = ({ setOpen, children, message }) => {
   return (
     <div
       onClick={() => setOpen(false)}
-      className="w-full h-screen bg-black/60 fixed flex items-center justify-center"
+      className="w-full h-screen bg-black/80 fixed flex items-center justify-center"
     >
-      <div className="w-75 h-75 bg-amber-200">gdjsg</div>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className=" bg-white rounded p-1"
+      >
+        <h1 className="text-2xl font-semibold text-center mt-2">{message}</h1>
+        {children}
+      </div>
     </div>
   );
 };
