@@ -1,13 +1,25 @@
+import { useDispatch, useSelector } from "react-redux";
 import Card from "./components/Card";
 import Header from "./components/Header";
+import { useEffect } from "react";
+import { userFetchApi } from "./store/createAsyncThunk";
 
 function App() {
+  const { usersData } = useSelector((state) => state.user);
+  console.log(usersData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userFetchApi());
+  }, []);
   return (
     <div className="flex flex-col">
       <Header />
 
       <div className="grid grid-cols-4 place-items-center gap-3 p-3">
-        <Card />
+        {usersData.map((item) => (
+          <Card data={item} key={item.id} />
+        ))}
       </div>
     </div>
   );

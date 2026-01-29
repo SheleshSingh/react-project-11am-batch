@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { userFetchApi } from "./createAsyncThunk";
 
 const initialState = {
   usersData: [],
@@ -9,7 +10,19 @@ const apiSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder.addCase(userFetchApi.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(userFetchApi.fulfilled, (state, action) => {
+      state.loading = false;
+      state.usersData = action.payload;
+    });
+    builder.addCase(userFetchApi.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+  },
 });
 
 export const {} = apiSlice.actions;
