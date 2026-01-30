@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userCreate } from "../store/createAsyncThunk";
 
 const data = {
   name: "",
@@ -6,8 +8,9 @@ const data = {
   profileUrl: "",
   description: "",
 };
-const CreateUserForm = () => {
+const CreateUserForm = ({ formId, setOpen }) => {
   const [userData, setUserData] = useState(data);
+  const dispatch = useDispatch();
   console.log(userData);
 
   const handleChange = (e) => {
@@ -16,11 +19,18 @@ const CreateUserForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(userData);
+    try {
+      e.preventDefault();
+      dispatch(userCreate(userData));
+      setOpen(false);
+      console.log(userData);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <form
+      id={formId}
       onSubmit={handleSubmit}
       className="w-75 rounded p-2 flex flex-col gap-2"
     >
@@ -80,17 +90,6 @@ const CreateUserForm = () => {
           value={userData.description}
           onChange={handleChange}
         />
-      </div>
-      <div className="flex justify-end gap-3">
-        <button className="bg-black text-white px-4 py-1.5 rounded active:scale-80 transition duration-400">
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="bg-black text-white px-4 py-1.5 rounded active:scale-80 transition duration-400"
-        >
-          Submit
-        </button>
       </div>
     </form>
   );

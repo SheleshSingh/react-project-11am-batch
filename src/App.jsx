@@ -6,7 +6,6 @@ import { userFetchApi } from "./store/createAsyncThunk";
 
 function App() {
   const { usersData } = useSelector((state) => state.user);
-  console.log(usersData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ function App() {
       <Header />
 
       <div className="grid grid-cols-4 place-items-center gap-3 p-3">
-        {usersData.map((item) => (
+        {usersData?.map((item) => (
           <Card data={item} key={item.id} />
         ))}
       </div>

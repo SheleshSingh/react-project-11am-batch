@@ -28,8 +28,12 @@ const Header = () => {
         </div>
       </div>
       {open && (
-        <Popup setOpen={setOpen} message={"Create User Form"}>
-          <CreateUserForm />
+        <Popup
+          setOpen={setOpen}
+          message={"Create User Form"}
+          formId={"createUser"}
+        >
+          <CreateUserForm formId={"createUser"} setOpen={setOpen} />
         </Popup>
       )}
     </>
