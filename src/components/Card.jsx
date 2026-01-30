@@ -2,8 +2,10 @@ import { Heart, UserPen, UserX } from "lucide-react";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../store/createAsyncThunk";
+import EditUserForm from "../form/EditUserForm";
 
 const Card = ({ data }) => {
+    const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -27,7 +29,11 @@ const Card = ({ data }) => {
         <Heart size={30} />
       </div>
       <div className="flex justify-end gap-3">
-        <button className="bg-black text-white p-2 rounded-full active:scale-80 transition duration-400">
+        <button
+            onClick={() => setOpen(true)}
+
+         className="bg-black text-white p-2 rounded-full active:scale-80 transition duration-400">
+
           <UserPen />
         </button>
         <button
@@ -37,6 +43,16 @@ const Card = ({ data }) => {
           <UserX />
         </button>
       </div>
+            {open && (
+        <Popup
+          setOpen={setOpen}
+          message={"Edit User Form"}
+          formId={"editUser"}
+        >
+          <EditUserForm formId={"editUser"} setOpen={setOpen} editData={data} />
+        </Popup>
+      )}
+
     </div>
   );
 };
