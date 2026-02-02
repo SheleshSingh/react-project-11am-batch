@@ -3,6 +3,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../store/createAsyncThunk";
 import EditUserForm from "../form/EditUserForm";
+import { useState } from "react";
+
+import Popup from "./Popup";
 
 const Card = ({ data }) => {
     const [open, setOpen] = useState(false);
@@ -10,7 +13,7 @@ const Card = ({ data }) => {
 
   return (
     <div className="flex flex-col gap-5 border-2 w-75 h-full p-1.5 rounded">
-      <div className="w-full h-75 rounded overflow-hidden">
+      <div className="w-full h-75 rounded overflow-hidden justify-center flex items-center ">
         <img
           src={
             data?.profileUrl ||

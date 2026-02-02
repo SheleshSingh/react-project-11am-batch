@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../config/axios.js";
-
 export const userFetchApi = createAsyncThunk(
   "user/userFetchApi",
   async (_, { rejectWithValue }) => {
@@ -26,6 +25,14 @@ export const userCreate = createAsyncThunk(
     }
   },
 );
+
+export const userUpdate = createAsyncThunk(
+  "user/update",
+  async (userData) => {
+    return userData;
+  }
+);
+
 export const deleteUser = createAsyncThunk(
   "user/deleteUser",
   async (id, { rejectWithValue, dispatch }) => {

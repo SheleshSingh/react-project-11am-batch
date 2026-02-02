@@ -34,7 +34,7 @@ const EditUserForm = ({ formId, setOpen, editData }) => {
     <form
       id={formId}
       onSubmit={handleSubmit}
-      className="w-75 rounded p-2 flex flex-col gap-2"
+      className="  w-75 rounded p-2 flex flex-col gap-2"
     >
       <div className="flex flex-col gap-1">
         <label className="font-semibold">Name</label>
