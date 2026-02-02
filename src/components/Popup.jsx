@@ -1,10 +1,10 @@
 import React from "react";
 
-const Popup = ({ setOpen, children, message, formId }) => {
+const Popup = ({ setOpen, children, message, formId, editText }) => {
   return (
     <div
       onClick={() => setOpen(false)}
-      className="w-full h-screen bg-black/80 fixed flex items-center justify-center"
+      className="w-full h-screen bg-black/80 fixed top-0 left-0 flex items-center justify-center"
     >
       <div
         onClick={(e) => e.stopPropagation()}
@@ -21,7 +21,7 @@ const Popup = ({ setOpen, children, message, formId }) => {
             type="submit"
             className="bg-black text-white px-4 py-1.5 rounded active:scale-80 transition duration-400"
           >
-            Submit
+            {editText || "Submit"}
           </button>
         </div>
       </div>
