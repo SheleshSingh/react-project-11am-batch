@@ -12,7 +12,7 @@ const Card = ({ data }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col gap-5 border-2 w-75 h-full p-1.5 rounded">
+    <div className="flex flex-col bg-white font-serif  gap-5  w-75 h-full p-1.5 rounded">
       <div className="w-full h-75 rounded overflow-hidden justify-center flex items-center ">
         <img
           src={
@@ -51,7 +51,7 @@ const Card = ({ data }) => {
           setOpen={setOpen}
           message={"Edit User Form"}
           formId={"editUser"}
-        >
+          editText={"Save"}        >
           <EditUserForm formId={"editUser"} setOpen={setOpen} editData={data} />
         </Popup>
       )}

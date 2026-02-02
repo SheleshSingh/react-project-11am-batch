@@ -12,7 +12,7 @@ function App() {
     dispatch(userFetchApi());
   }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-blue-400">
       <Header />
 
       <div className="grid grid-cols-4 place-items-center gap-3 p-3">

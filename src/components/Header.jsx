@@ -7,14 +7,14 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="flex justify-around items-center bg-amber-400 py-3">
+      <div className="flex justify-around items-center bg-gray-900 p-4 text-white">
         <h1 className="text-4xl font-semibold">
-          <span className="text-red-600 font-bold">T</span>echnosters
+          <span className="text-red-600 font-serif">T</span>echnosters
         </h1>
         <div className="flex gap-5 items-center">
           <input
             type="text"
-            className="outline-none border-2 border-black rounded px-2"
+            className="outline-none border-2 w-60 border-blue-600 p-1.5 rounded-2xl px-3"
           />
           <button
             onClick={() => setOpen(true)}
