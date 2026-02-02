@@ -11,6 +11,8 @@ const EditUserForm = ({ formId, setOpen, editData }) => {
   });
 
   const dispatch = useDispatch();
+  
+  console.log(userData);
 
   
   useEffect(() => {

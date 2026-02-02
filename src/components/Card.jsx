@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { deleteUser } from "../store/createAsyncThunk";
 import EditUserForm from "../form/EditUserForm";
 import { useState } from "react";
-
 import Popup from "./Popup";
 
 const Card = ({ data }) => {

@@ -13,8 +13,9 @@ const Header = () => {
         </h1>
         <div className="flex gap-5 items-center">
           <input
+          placeholder="Search_users"
             type="text"
-            className="outline-none border-2 w-60 border-blue-600 p-1.5 rounded-2xl px-3"
+            className="outline-none border-2 w-60 border-blue-600 p-1.5 rounded-2xl px-3 font-extrabold "
           />
           <button
             onClick={() => setOpen(true)}
