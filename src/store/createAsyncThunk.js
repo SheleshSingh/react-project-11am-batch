@@ -40,3 +40,17 @@ export const deleteUser = createAsyncThunk(
     }
   },
 );
+export const editUser = createAsyncThunk(
+  "user/editUser",
+  async ({ id, details }, { rejectWithValue, dispatch }) => {
+    // console.log(id);
+    try {
+      const res = await api.put(`user/${id}`, details);
+      dispatch(userFetchApi());
+      console.log(res?.data);
+      return res?.data;
+    } catch (err) {
+      rejectWithValue("Something went wrong", err);
+    }
+  },
+);

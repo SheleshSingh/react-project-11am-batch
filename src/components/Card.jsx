@@ -50,7 +50,7 @@ const Card = ({ data }) => {
           setOpen={setOpen}
           editText={"Save"}
         >
-          <EditUserForm formId={"editUser"} />
+          <EditUserForm formId={"editUser"} data={data} setOpen={setOpen} />
         </Popup>
       )}
     </div>
