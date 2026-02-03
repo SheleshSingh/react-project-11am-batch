@@ -28,9 +28,16 @@ export const userCreate = createAsyncThunk(
 
 export const userUpdate = createAsyncThunk(
   "user/update",
-  async (userData) => {
-    return userData;
-  }
+  async ({id, details}, {rejectWithValue, dispatch}) => {
+    try {
+      const res = await api.put(`user/${id}`, details);
+      dispatch(userFetchApi());
+      console.log(res?.data);
+      return res?.data;
+    } catch (err) {
+      rejectWithValue("Something went wrong", err);
+    }
+  },
 );
 
 export const deleteUser = createAsyncThunk(

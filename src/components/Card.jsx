@@ -4,10 +4,17 @@ import { deleteUser } from "../store/createAsyncThunk";
 import Popup from "./Popup";
 import EditUserForm from "../form/EditUserForm";
 import { useState } from "react";
+import Popup2 from "./Popup2";
 
 const Card = ({ data }) => {
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const dispatch = useDispatch();
+   
+  const handleDelete = () => {
+    dispatch(deleteUser(data?.id));
+    setOpen2(false);
+  }
 
   return (
     <div className="flex flex-col gap-5 outline-1 shadow-xs shadow-pink-500 bg-white w-75 h-full p-1.5 rounded">
@@ -37,9 +44,10 @@ const Card = ({ data }) => {
           <UserPen />
         </button>
         <button
-          onClick={() => dispatch(deleteUser(data?.id))}
+          onClick={() => setOpen2(true)}
           className="bg-black text-white p-2 rounded-full active:scale-80 transition duration-400"
         >
+          
           <UserX />
         </button>
       </div>
@@ -53,6 +61,28 @@ const Card = ({ data }) => {
           <EditUserForm formId={"editUser"} data={data} setOpen={setOpen} />
         </Popup>
       )}
+      
+      {open2 && (
+        <Popup2
+        message="Are you Sure?" setOpen2={setOpen2}>
+          <div className="flex gap-4 mt-4">
+            <button 
+            onClick={handleDelete}
+            className="bg-red-500 text-white px-4 py-2 text-2xl rounded-2xl"
+            >Yes</button>
+            <button 
+            onClick={() =>{
+              setOpen2(false);
+              console.log("No button clicked");
+            } 
+            }
+            className="bg-gray-800 px-4 py-2 rounded-2xl text-2xl text-white"
+            >No</button>
+          </div>
+
+        </Popup2>
+      )}
+      
     </div>
   );
 };

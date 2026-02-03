@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { userUpdate } from "../store/createAsyncThunk";
 
@@ -39,8 +39,10 @@ const EditUserForm = ({ formId, setOpen, data }) => {
       <div className="flex flex-col gap-1">
         <label className="font-semibold">Name</label>
         <input
+        id="name"
           type="text"
           name="name"
+          placeholder="Name..."
           value={userData.name}
           onChange={handleChange}
           className="border outline-none rounded px-3 py-1.5"
@@ -50,7 +52,9 @@ const EditUserForm = ({ formId, setOpen, data }) => {
       <div className="flex flex-col gap-1">
         <label className="font-semibold">Email</label>
         <input
+          id="email"
           type="text"
+          placeholder="Email..."
           name="email"
           value={userData.email}
           onChange={handleChange}
@@ -61,6 +65,8 @@ const EditUserForm = ({ formId, setOpen, data }) => {
       <div className="flex flex-col gap-1">
         <label className="font-semibold">Profile Url</label>
         <input
+        id="profileUrl"
+        placeholder="Profile Url..."
           type="text"
           name="profileUrl"
           value={userData.profileUrl}
@@ -73,6 +79,8 @@ const EditUserForm = ({ formId, setOpen, data }) => {
         <label className="font-semibold">Description</label>
         <textarea
           rows={3}
+          placeholder="Description..."
+          id="description"
           name="description"
           value={userData.description}
           onChange={handleChange}
