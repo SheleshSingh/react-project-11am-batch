@@ -10,7 +10,7 @@ const Card = ({ data }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col gap-5 border-2 w-75 h-full p-1.5 rounded">
+    <div className="flex flex-col gap-5 outline-1 shadow-xs shadow-pink-500 bg-white w-75 h-full p-1.5 rounded">
       <div className="w-full h-75 rounded overflow-hidden">
         <img
           src={
