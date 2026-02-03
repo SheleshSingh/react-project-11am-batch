@@ -1,18 +1,17 @@
 import { Heart, UserPen, UserX } from "lucide-react";
-import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../store/createAsyncThunk";
+import Popup from "./Popup";
 import EditUserForm from "../form/EditUserForm";
 import { useState } from "react";
-import Popup from "./Popup";
 
 const Card = ({ data }) => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col  shadow-2xl shadow-amber-100 bg-white outline-1  font-serif  gap-5  w-75 h-full p-1.5 rounded">
-      <div className="w-full h-75 rounded overflow-hidden justify-center flex items-center ">
+    <div className="flex flex-col gap-5 border-2 w-75 h-full p-1.5 rounded">
+      <div className="w-full h-75 rounded overflow-hidden">
         <img
           src={
             data?.profileUrl ||
@@ -32,10 +31,9 @@ const Card = ({ data }) => {
       </div>
       <div className="flex justify-end gap-3">
         <button
-            onClick={() => setOpen(true)}
-
-         className="bg-black text-white p-2 rounded-full active:scale-80 transition duration-400">
-
+          onClick={() => setOpen(true)}
+          className="bg-black text-white p-2 rounded-full active:scale-80 transition duration-400"
+        >
           <UserPen />
         </button>
         <button
@@ -45,16 +43,16 @@ const Card = ({ data }) => {
           <UserX />
         </button>
       </div>
-            {open && (
+      {open && (
         <Popup
-          setOpen={setOpen}
-          message={"Edit User Form"}
+          message={"Edit user form"}
           formId={"editUser"}
-          editText={"Save"}        >
-          <EditUserForm formId={"editUser"} setOpen={setOpen} editData={data} />
+          setOpen={setOpen}
+          editText={"Save"}
+        >
+          <EditUserForm formId={"editUser"} data={data} setOpen={setOpen} />
         </Popup>
       )}
-
     </div>
   );
 };
