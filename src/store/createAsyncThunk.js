@@ -5,7 +5,7 @@ export const userFetchApi = createAsyncThunk(
   "user/userFetchApi",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await api.get("user");
+      const res = await api.get("");
       // console.log(res?.data);
       return res?.data;
     } catch (err) {
@@ -17,7 +17,7 @@ export const userCreate = createAsyncThunk(
   "user/userCreate",
   async (details, { rejectWithValue, dispatch }) => {
     try {
-      const res = await api.post("user", details);
+      const res = await api.post("", details);
       dispatch(userFetchApi());
       console.log(res?.data);
       return res?.data;
@@ -31,7 +31,7 @@ export const deleteUser = createAsyncThunk(
   async (id, { rejectWithValue, dispatch }) => {
     console.log(id);
     try {
-      const res = await api.delete(`user/${id}`);
+      const res = await api.delete(`/${id}`);
       dispatch(userFetchApi());
       console.log(res?.data);
       return res?.data;
@@ -45,7 +45,7 @@ export const editUser = createAsyncThunk(
   async ({ id, details }, { rejectWithValue, dispatch }) => {
     // console.log(id);
     try {
-      const res = await api.put(`user/${id}`, details);
+      const res = await api.put(`/${id}`, details);
       dispatch(userFetchApi());
       console.log(res?.data);
       return res?.data;

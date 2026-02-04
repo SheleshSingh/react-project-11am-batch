@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const Card = ({ data }) => {
   const [open, setOpen] = useState(false);
+
   const dispatch = useDispatch();
 
   return (
@@ -22,7 +23,7 @@ const Card = ({ data }) => {
         />
       </div>
       <div className="flex items-center px-2">
-        <div>
+        <div className="w-60 flex justify-between flex-col">
           <h1>{data?.name}</h1>
           <h4>{data?.email}</h4>
           <p className="line-clamp-1">{data?.description}</p>

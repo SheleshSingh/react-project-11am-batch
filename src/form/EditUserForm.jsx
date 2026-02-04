@@ -9,11 +9,7 @@ const EditUserForm = ({ formId, data, setOpen }) => {
     profileUrl: data?.profileUrl,
     description: data?.description,
   });
-  // useEffect(() => {
-  //   if (data) {
-  //     data;
-  //   }
-  // }, [data]);
+
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +20,7 @@ const EditUserForm = ({ formId, data, setOpen }) => {
     if (data?.id) {
       dispatch(editUser({ id: data?.id, details: editUserData }));
     }
-    setOpen = false;
+    setOpen(false);
   };
   return (
     <form
