@@ -29,7 +29,7 @@ const Card = ({ data }) => {
         />
       </div>
       <div className="flex items-center px-2">
-        <div>
+        <div className="flex flex-col w-60">
           <h1>{data?.name}</h1>
           <h4>{data?.email}</h4>
           <p className="line-clamp-1">{data?.description}</p>
